@@ -34,42 +34,6 @@ Handling the messages here would be pretty simple - just iterating through the m
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
-    for (const message in context.messages()) {
-        ...
-    }
-
-    // OR
-
-    context.messages().forEach(m => {
-        ...
-    })
-}
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-def behavior(state, context):
-    for message in context.messages():
-        ...
-```
-{% endtab %}
-
-{% tab title="Rust" %}
-```rust
-fn (state: AgentState, context: &Context) -> AgentState {
-    context.messages()
-           .iter()
-           .map(|m: &Message| {...});
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% tabs %}
-{% tab title="JavaScript" %}
-```javascript
-const behavior = (state, context) => {
     for (const message of context.messages()) {
         // ...
     }
@@ -88,6 +52,17 @@ const behavior = (state, context) => {
 def behavior(state, context):
     for message in context.messages():
         ...
+```
+{% endtab %}
+
+
+{% tab title="Rust" %}
+```rust
+fn (state: AgentState, context: &Context) -> AgentState {
+    context.messages()
+           .iter()
+           .map(|m: &Message| {...});
+}
 ```
 {% endtab %}
 {% endtabs %}
